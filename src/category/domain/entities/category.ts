@@ -3,13 +3,13 @@ export type CategoryProperties = {
   description?: string;
   is_active?: boolean;
   created_at?: Date;
-}
+};
 
 export class Category {
   constructor(public readonly props: CategoryProperties) {
-    this.description = this.props.description
+    this.description = this.props.description;
     this.props.is_active = this.props.is_active ?? true;
-    this.props.created_at = this.props.created_at ?? new Date;
+    this.props.created_at = this.props.created_at ?? new Date();
   }
 
   get name() {
@@ -29,7 +29,7 @@ export class Category {
   }
 
   private set is_active(value: boolean) {
-    this.props.is_active = this.props.is_active ?? true;
+    this.props.is_active = value ?? true;
   }
 
   get created_at() {
